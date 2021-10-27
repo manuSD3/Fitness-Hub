@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+  <head>
+    <title>Formulario de registro</title>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./formulario_registro.css">
+    
+    <script type="text/javascript" src="./validacion.js"></script>
+
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+
+  </head>
+
+  <body>
+    <form action="/action_page.php">
+        <h1>Formulario de registro:</h1>
+        <p> <label for="nombre">Nombre completo:</label>   <input type="text" id="nombre" name="nombre" required/>  </p>
+        <p> <label for="fecha_nac">Fecha de nacimiento:</label> <input type="text" id="fecha_nac" name="fecha_nac" required/> </p>
+        <p> <label for="telefono">Teléfono de contacto:</label> <input type="number" id="telefono" name="telefono" required/>  </p>
+        <br>
+        <p> <label for="email">Email (Usuario):</label>  <input type="email" id="email" name="email" required> </p>
+        <p> <label for="email">Contraseña:</label>  <input type="password" id="email" name="email" required> </p>
+        <br>
+
+        <div class="tabla">
+            <div class="izq">
+                <p>Sexo: </br>
+                    <input type="radio" id="hombre" name="genero" value="M" required>
+                    <label for="hombre">Hombre</label>
+                    <input type="radio" id="mujer" name="genero" value="F">
+                    <label for="mujer">Mujer</label>
+                    <input type="radio" id="otro" name="genero" value="O">
+                    <label for="otro">Otro</label>
+                </p>
+            </div>
+            <div class="der">
+                <p>Actividades: </p>
+
+                <div class="tabla">
+                    <div class="izq">
+                        <span>
+                        <input type="checkbox" id="sala" name="salaFitness" value="salaFitness">
+                        <label for="sala">Sala fitness</label> </br>
+                    </span>
+                        <input type="checkbox" id="yoga" name="yoga" value="yoga">
+                        <label for="yoga">Yoga</label>
+                    </div>
+                    <div class="der">
+                        <input type="checkbox" id="spa" name="spa" value="spa">
+                        <label for="spa">Spa</label> </br>
+                        <input type="checkbox" id="natacion" name="natacion" value="natacion">
+                        <label for="natacion">Natación</label>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+          </div>
+
+        
+        <br>
+        
+        <input class="boton" type="submit" value="Enviar" />
+      </form> 
+
+
+
+  </body>
+</html>
