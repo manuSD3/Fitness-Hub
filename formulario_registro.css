@@ -1,0 +1,43 @@
+/*
+body {
+    font-family: Russo One;
+}
+*/
+
+form {
+    margin: auto;
+    width: 25%;
+    background-color: #0A1E25;
+    color: #FFFFFF;
+    padding: 1% 2% 1% 2%;
+    text-align: left;
+    border-radius: 2%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.boton {
+    background-color: #C4C4C4;
+    color: #3A494E;
+    ;
+}
+
+.izq {
+    float: left;
+    width: 50%;
+    display:inline;
+  }
+
+.der {
+   float: right;
+   width: 50%;
+   display:inline;
+  }
+
+.boton {
+    clear:both;
+}
+  
