@@ -35,7 +35,7 @@ form {
     font-family: var(--texto-logo-cabecera);
 }
 
-input[type=text], input[type=password], input[type=email], input[type=number], select {
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=date], select {
     width: 100%;
     resize: vertical;
     font-family: var(--texto-logo-cabecera);
@@ -98,7 +98,9 @@ input[type=submit]:hover {
    display:inline;
   }
 
-
+.error {
+    color: red;
+}
   
 
 
