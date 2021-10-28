@@ -9,21 +9,25 @@ function validarFormulario() {
     let enviar = true;
 
     if (nombre == "") {
-      //alert("Rellena el nombre");
       document.getElementById("nombreMal").innerHTML = "^ El nombre es obligatorio ^";
       enviar = false;
+    } else if (!nombre.includes(" ")) {
+        document.getElementById("nombreMal").innerHTML = "Introduce al menos 1 apellido";
+        enviar = false;
+    } else {
+        document.getElementById("nombreMal").innerHTML = "";
+        //enviar = true;
     }
 
     if (fecha_nac == "") {
-        //alert("Rellena el nombre");
         document.getElementById("fechaMal").innerHTML = "^ La fecha es obligatoria ^";
         enviar = false;
     }
+    //verificar que es mayor de 16 para poder usar la sala fitness
 
     let elTele = "El teléfono ";
 
     if (telefono == "") {
-        //alert("Rellena el nombre");
         document.getElementById("telefonoMal").innerHTML = elTele+"es obligatorio ";
         enviar = false;
     } else if (telefono.length != 9) {
@@ -32,22 +36,24 @@ function validarFormulario() {
     }
 
     if (email == "") {
-        //alert("Rellena el nombre");
         document.getElementById("emailMal").innerHTML = "^ El email es obligatorio ^";
         enviar = false;
     }
 
     if (password == "") {
-        //alert("Rellena el nombre");
         document.getElementById("contraseñaMal").innerHTML = "^ La contraseña es obligatoria ^";
         enviar = false;
     }
 
     if (password2 == "") {
-        //alert("Rellena el nombre");
         document.getElementById("contraseña2Mal").innerHTML = "^ Escriba de nuevo la contraseña ^";
         enviar = false;
+    } else if (!contrasenha1.equals(contrasenha2)) {
+        document.getElementById("contraseña2Mal").innerHTML = "Las contraseñas no coinciden";
+        enviar = false;
     }
+
+    
 
     return enviar;
 
