@@ -43,18 +43,18 @@ function validarFormulario() {
     if (password == "") {
         document.getElementById("contraseñaMal").innerHTML = "^ La contraseña es obligatoria ^";
         enviar = false;
-    }
 
-    if (password2 == "") {
+    } else if (password2 == "") {
         document.getElementById("contraseña2Mal").innerHTML = "^ Escriba de nuevo la contraseña ^";
         enviar = false;
-    } else if (!contrasenha1.equals(contrasenha2)) {
+    
+     } else if (!(password.valueOf() === password2.valueOf())) {
+        document.getElementById("contraseñaMal").innerHTML = "";
         document.getElementById("contraseña2Mal").innerHTML = "Las contraseñas no coinciden";
         enviar = false;
     }
 
     
-
     return enviar;
 
   }
