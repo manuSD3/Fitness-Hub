@@ -4,52 +4,6 @@ body {
 }
 */
 
-form {
-    margin: auto;
-    width: 25%;
-    background-color: #0A1E25;
-    color: #FFFFFF;
-    padding: 1% 2% 1% 2%;
-    text-align: left;
-    border-radius: 2%;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 0px;
-}
-
-.boton {
-    background-color: #C4C4C4;
-    color: #3A494E;
-    ;
-}
-
-.izq {
-    float: left;
-    width: 50%;
-    display:inline;
-  }
-
-.der {
-   float: right;
-   width: 50%;
-   display:inline;
-  }
-
-.boton {
-    clear:both;
-}
-  
-
-
-/*============================================*/
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
 :root {
 
     /* Logo */
@@ -70,7 +24,90 @@ h1 {
     --color-footer-fondo:  rgba(10, 30, 37, 0.82);
   }
 
+form {
+    margin: 5% auto 10% auto;
+    width: 33%;
+    background-color: #0A1E25;
+    color: #FFFFFF;
+    padding: 1% 2% 1% 2%;
+    text-align: left;
+    border-radius: 8px;
+    font-family: var(--texto-logo-cabecera);
+}
 
+input[type=text], input[type=password], input[type=email], input[type=number], select {
+    width: 100%;
+    resize: vertical;
+    font-family: var(--texto-logo-cabecera);
+    padding: 1px;
+    border: none;
+    border-radius: 4px;
+}
+
+label {
+    display: inline-block;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0px;
+}
+
+
+.izquierda {
+    float: left;
+    width: 30%;
+}
+
+.derecha {
+    float: left;
+    width: 70%;
+}
+
+input[type=submit] {
+    text-align: center;
+    cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+
+    background-color: #C4C4C4;
+    color: #3A494E;
+    clear:both;
+
+    font-family: var(--texto-logo-cabecera);
+}
+
+input[type=submit]:hover {
+    background-color: #8f8f8f;
+  }
+
+.tabla {
+    margin-bottom: 3.5em;
+}
+
+.izq {
+    float: left;
+    width: 50%;
+    display:inline;
+  }
+
+.der {
+   float: right;
+   width: 50%;
+   display:inline;
+  }
+
+
+  
+
+
+/*============================================*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
 
 /* ==> Globales <== */
 a {
