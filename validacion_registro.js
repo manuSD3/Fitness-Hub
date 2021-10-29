@@ -6,6 +6,8 @@ function validarFormulario() {
     let password = document.forms["registro"]["password"].value;
     let password2 = document.forms["registro"]["password2"].value;
 
+    
+
     let enviar = true;
 
     if (nombre == "") {
@@ -24,6 +26,7 @@ function validarFormulario() {
         enviar = false;
     }
     //verificar que es mayor de 16 para poder usar la sala fitness
+
 
     let elTele = "El teléfono ";
 
