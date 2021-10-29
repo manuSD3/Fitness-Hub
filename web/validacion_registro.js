@@ -1,26 +1,38 @@
-function validarFormulario() {
+function validaNombre() {
     let nombre = document.forms["registro"]["nombre"].value;
+
+    if (nombre == "") {
+        document.getElementById("nombreMal").innerHTML = "El nombre es obligatorio";
+        
+      } else if (!nombre.includes(" ")) {
+          document.getElementById("nombreMal").innerHTML = "Introduce al menos 1 apellido";
+         
+      } else {
+          document.getElementById("nombreMal").innerHTML = "";
+          //enviar = true;
+      }
+}
+
+function validaFecha() {
     let fecha_nac = document.forms["registro"]["fecha_nac"].value;
+
+    if (fecha_nac == "") {
+        document.getElementById("fechaMal").innerHTML = "La fecha es obligatoria";
+        enviar = false;
+    } else {
+        document.getElementById("fechaMal").innerHTML = "";
+    }
+}
+
+function validarFormulario() {
+    
     let telefono = document.forms["registro"]["telefono"].value;
     let email = document.forms["registro"]["email"].value;
     let password = document.forms["registro"]["password"].value;
     let password2 = document.forms["registro"]["password2"].value;
 
-    let enviar = true;
-
-    if (nombre == "") {
-      document.getElementById("nombreMal").innerHTML = "El nombre es obligatorio";
-      enviar = false;
-    } else if (!nombre.includes(" ")) {
-        document.getElementById("nombreMal").innerHTML = "Introduce al menos 1 apellido";
-        enviar = false;
-    } else {
-        document.getElementById("nombreMal").innerHTML = "";
-        //enviar = true;
-    }
-
     if (fecha_nac == "") {
-        document.getElementById("fechaMal").innerHTML = "^ La fecha es obligatoria";
+        document.getElementById("fechaMal").innerHTML = "La fecha es obligatoria";
         enviar = false;
     } else {
         document.getElementById("fechaMal").innerHTML = "";
