@@ -1,0 +1,22 @@
+CREATE TABLE Actividades (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  Actividad varchar (40)
+);
+
+CREATE TABLE Persons (
+    email varchar (200) PRIMARY KEY,
+    nombre varchar(255),
+    telefono int,
+    contraseña varchar (255),
+    /* Sexo: H (hombres), M(mujer), I(Intersexual)*/
+ 	sexo varchar(1),
+    /*Horario: M(mañana), T(tarde), X(Mañana y Tarde)*/
+    horario varchar (1), 
+    actividad int, 
+    FOREIGN KEY (actividad) REFERENCES actividades(id)
+);
+
+INSERT INTO actividades VALUES (null,'Sala firness');
+INSERT INTO actividades VALUES (null,'Yoga');
+INSERT INTO actividades VALUES (null,'Spa');
+INSERT INTO actividades VALUES (null,'Natación');
