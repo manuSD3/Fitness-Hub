@@ -145,7 +145,11 @@ function validaEmail() {
 
 function validaPassword() {
     let password = document.forms["registro"]["password"].value;
+    const caracPermitidos = /^([a-zA-Z0-9\-_\.@]+)$/gm;
+    //       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])$/gm
     let enviar = false;
+
+    //if (!caracPermitidos.test(String(password))){
 
     if (password == "") {
         document.getElementById("contraseñaMal").innerHTML = "La contraseña es obligatoria";
