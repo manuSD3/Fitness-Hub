@@ -32,7 +32,7 @@
     </header>
 
 <!--=============FORMULARIO===========================-->
-    <form name="registro" action="/action_page.php" method="post" onsubmit="submitForm(event);">
+    <form id="formulario" name="registro" action="/action_page.php" method="post" onsubmit="return validarTodo();">
         <h1>Formulario de registro:</h1>
 
         <div class="fila">
@@ -105,11 +105,11 @@
                     <p> <input type="radio" id="hombre" name="genero" value="M" required /> <label for="hombre">Hombre</label> </p> 
                     <p> <input type="radio" id="mujer" name="genero" value="F">  <label for="mujer">Mujer</label> </p>
                     <p> <input type="radio" id="otro" name="genero" value="I">  <label for="otro">Intersexual</label> </p>
+                    
                 </p>
             </div>
             <div class="der">
                 <p>Actividades: </p>
-
                 <div>
                     <div class="izq">
                         <input type="checkbox" id="sala" name="salaFitness" value="salaFitness">
@@ -138,8 +138,11 @@
           <br>
           <br>
           <br>
-
+        
+        
         <input class="boton" type="submit" value="Enviar" />
+        <input class="boton" type="reset" value="Limpiar formulario" />
+        <input class="boton" type="button" onclick="validar()" value="Validar antes de enviar" />
       </form> 
 <!--=============FIN FORMULARIO===========================-->
 

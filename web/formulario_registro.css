@@ -70,7 +70,7 @@ h1 {
     width: 70%;
 }
 
-input[type=submit] {
+.boton {
     text-align: center;
     cursor: pointer;
     padding: 12px 20px;
@@ -112,6 +112,26 @@ div .tabla {
 div {
     margin-top: 1%;
 }
+
+/* Para evitar que se vean flechitas en el campo de texto */
+input[type=number]::-webkit-inner-spin-button,  input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+/* Cambiar de color el campo cuando es invalido */
+/* input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  } */
 
 /*=====================Estilo compartido=======================*/
 
