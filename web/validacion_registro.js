@@ -1,10 +1,21 @@
+function cambiarBorde(enviar, elemento) {
+    if (!enviar) {
+        document.getElementById(elemento).style.border="2px solid #cb2e35";
+        //document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 9px red";
+        document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
+    } else {
+        document.getElementById(elemento).style.border="1px solid black";
+        document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 0px red";
+    }
+}
+
 function validaNombre() {
     let nombre = document.forms["registro"]["nombre"].value;
-    const patron = /^([a-zA-Z']+ [a-zA-Z' ]+)$/gm;
+    const patron = /^([a-zA-Záéíóú']+ [a-zA-Záéíóú' ]+)$/gm;
     //esta expresion regular selecciona cualquier cadena de letras de la a a la z (minusculas o mayusculas), de cualquier longitud, separada por 1 espacio, y de al menos una letra antes y despues del espacio). Porque se supone que nombre y apellidos solo tienen letras y se escriben separados por un espacio. Tambien permite apostrofes.
     //la g (global) es para que tome todas las coincidencias, no devolverla despues de la primera. La m es para que distinga entre lineas.
     const patronNumeros = /[0-9]+/gm;
-    const patronSoloLetras = /^([a-zA-Z' ]+)$/gm;
+    const patronSoloLetras = /^([a-zA-Záéíóú' ]+)$/gm;
     let enviar = false;
 
     if (nombre == "") {
@@ -28,6 +39,9 @@ function validaNombre() {
           document.getElementById("nombreMal").innerHTML = "";
           enviar = true;
     }
+
+    cambiarBorde(enviar, "nombre");
+
     return enviar;
 }
 
@@ -51,6 +65,8 @@ function calcularEdad(fecha_nac) {     //deberia recibir una string en formato a
         edad--;
     }
 
+    console.log(edad);
+
     return edad;
 }
 
@@ -63,16 +79,18 @@ function validaFecha() {
     if (fecha_nac == "") {
         document.getElementById("fechaMal").innerHTML = "La fecha es obligatoria";
     
+    } else if (edad > 130 || edad < 0) {
+        document.getElementById("fechaMal").innerHTML = "¿Seguro que has escrito bien el año?";
+
     } else if (edad < 16) {
         document.getElementById("fechaMal").innerHTML = "Para inscribirte en el gym debes tener al menos 16 años. Podría afectar a tu crecimiento :v";
     
-    } else if (edad > 125) {
-        document.getElementById("fechaMal").innerHTML = "¿Seguro que has escrito bien el año?";
-
     } else {
         document.getElementById("fechaMal").innerHTML = "";
         enviar = true;
     }
+
+    cambiarBorde(enviar, "fecha_nac");
 
     return enviar;
 }
@@ -93,6 +111,9 @@ function validaTelefono() {
         document.getElementById("telefonoMal").innerHTML ="";
         enviar = true;
     }
+
+    cambiarBorde(enviar, "telefono");
+
     return enviar;
 }
 
@@ -116,6 +137,9 @@ function validaEmail() {
         document.getElementById("emailMal").innerHTML = "";
         enviar = true;
     }
+
+    cambiarBorde(enviar, "email");
+
     return enviar;
 }
 
@@ -133,6 +157,10 @@ function validaPassword() {
         document.getElementById("contraseñaMal").innerHTML = "";
         enviar = true;
     }
+
+    cambiarBorde(enviar, "password");
+    cambiarBorde(enviar, "password2");
+
     return enviar;
 }
 
@@ -142,17 +170,57 @@ function validaPassword2() {
     let enviar = false;
 
     if (password2 == "") {
-        document.getElementById("contraseña2Mal").innerHTML = "Escriba de nuevo la contraseña";
+        document.getElementById("contraseña2Mal").innerHTML = "Debes escribir la contraseña 2 veces";
         
     
     } else if (!(password.valueOf() === password2.valueOf())) {
-        document.getElementById("contraseñaMal").innerHTML = "";
+        //document.getElementById("contraseñaMal").innerHTML = "";
         document.getElementById("contraseña2Mal").innerHTML = "Las contraseñas no coinciden";
         
  
     } else {
-        document.getElementById("contraseñaMal").innerHTML = "";
+        //document.getElementById("contraseñaMal").innerHTML = "";
         document.getElementById("contraseña2Mal").innerHTML = "";
+        enviar = true;
+    }
+
+    cambiarBorde(enviar, "password");
+    cambiarBorde(enviar, "password2");
+
+    return enviar;
+}
+
+function validaSexo() {
+    let enviar = false;
+    
+    if (
+    document.getElementById("hombre").checked == true ||
+    document.getElementById("mujer").checked == true ||
+    document.getElementById("otro").checked == true
+    ) {
+        document.getElementById("sexoMal").innerHTML = "";
+        enviar = true;
+    } else {
+        document.getElementById("sexoMal").innerHTML = "Debes marcar el sexo";
+    }
+
+    //document.getElementById(elemento).style["input[type='radio']:after"]="red";
+
+    return enviar;
+}
+
+function validaActividades() {
+    let enviar = false;
+
+    let sala = document.getElementById("sala");
+    let yoga = document.getElementById("yoga");
+    let spa = document.getElementById("spa");
+    let natacion = document.getElementById("natacion");
+
+    if (!sala.checked && !yoga.checked && !spa.checked && !natacion.checked){
+        document.getElementById("actividadesMal").innerHTML = "Elige al menos una actividad";
+    } else {
+        document.getElementById("actividadesMal").innerHTML = "";
         enviar = true;
     }
 
@@ -163,44 +231,46 @@ function validaPassword2() {
 function validarTodo() {
     let enviar=false;
 
-    if (validaNombre() && validaFecha() && validaTelefono() && validaEmail() && validaPassword() && validaPassword2()) {
+    if (validaNombre() && validaFecha() && validaTelefono() && validaEmail() && validaPassword() && validaPassword2() && validaSexo() && validaActividades()) {
         enviar = true;
     }
     return enviar;
 }
 
-function validar() {
+function validarAntes() {
+
+    validaNombre();
+    validaFecha();
+    validaTelefono();
+    validaEmail();
+    validaPassword();
+    validaPassword2();
+    validaSexo();
+    validaActividades();
 
     if (validarTodo()) {
-       /*  document.body.style.fontSize="24px";
-        document.getElementById("formulario").style.property="color: red;"
-         */
+        alert("Todo parece correcto");
+    }
+}
+
+function limpiarErrores() {
+
+    let ids = ["nombreMal", "fechaMal", "telefonoMal","emailMal","contraseñaMal","contraseña2Mal", "sexoMal", "actividadesMal"];
+
+    for (let index = 0; index < ids.length; index++) {
+        document.getElementById(ids[index]).innerHTML = "";
     }
 
-    if (!validaNombre()) {
-        document.getElementById('nombre').style.border='2px dotted red';
-    } else {
-        document.getElementById('nombre').style.border='1px solid black';
-    }
+    ids = ["nombre", "fecha_nac", "telefono","email","password","password2"];
 
-    if (validaFecha()) {
-
-    }
-
-    if (validaTelefono()) {
-
-    }
-
-    if (validaEmail()) {
-
-    }
-
-    if (validaPassword()) {
-
-    }
-
-    if (validaPassword2()) {
-
+    for (let index = 0; index < ids.length; index++) {
+        cambiarBorde(true, ids[index]);
     }
 
 }
+
+/*
+console.log("Hello");
+setTimeout(() => { console.log("World!"); }, 2000);
+console.log("Goodbye!");
+*/

@@ -26,8 +26,8 @@ body {
 
 form {
     margin: 5% auto 10% auto;
-    /* width: 33%; */
-    background-color: #0A1E25;
+    width: 40%;
+    background-color: rgba(10, 30, 37, 0.91);
     color: #FFFFFF;
     padding: 1% 2% 1% 2%;
     text-align: left;
@@ -50,9 +50,9 @@ input[type=date] {
     resize: none;
 }
 
-label {
+/* label {
     display: inline-block;
-}
+} */
 
 h1 {
     text-align: center;
@@ -68,6 +68,13 @@ h1 {
 .derecha {
     float: left;
     width: 70%;
+}
+
+#cabeceraHorario {
+    margin-top: 7%;
+    margin-bottom:0%;
+    display:inline-grid;
+    float: left;
 }
 
 .boton {
@@ -96,14 +103,32 @@ div .tabla {
 .izq {
     float: left;
     width: 50%;
-    display:inline;
+    /* display:inline; */
   }
 
 .der {
    float: right;
    width: 50%;
-   display:inline;
+   /* display:inline; */
   }
+
+.izq2 {
+    margin-top: 0%;
+    float: left;
+    width: 50%;
+    /* display:inline; */
+}
+
+.der2 {
+    margin-top: 0%;
+    float: right;
+    width: 50%;
+    /* display:inline; */
+}
+
+.margenSup {
+    margin-top: 2%;
+}
 
 .error {
     color: red;

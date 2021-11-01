@@ -80,7 +80,7 @@
                 <label for="password">Contraseña:</label>
             </div>
             <div class="derecha">
-                <input type="password" id="password" name="password" onblur="validaPassword()" required />
+                <input type="password" id="password" name="password" onblur="validaPassword(); validaPassword2()" required />
                 <p id="contraseñaMal" class="error"></p>
             </div>
         </div>
@@ -90,7 +90,7 @@
                 <label for="password2">Repita su contraseña:</label>
             </div>
             <div class="derecha">
-                <input type="password" id="password2" name="password2" onblur="validaPassword2()" required />
+                <input type="password" id="password2" name="password2" onblur="validaPassword(); validaPassword2()" required />
                 <p id="contraseña2Mal" class="error"></p>
             </div>
         </div>
@@ -102,33 +102,45 @@
         <div class="tabla">
             <div class="izq">
                 <p>Sexo: </br>
-                    <p> <input type="radio" id="hombre" name="genero" value="M" required /> <label for="hombre">Hombre</label> </p> 
-                    <p> <input type="radio" id="mujer" name="genero" value="F">  <label for="mujer">Mujer</label> </p>
-                    <p> <input type="radio" id="otro" name="genero" value="I">  <label for="otro">Intersexual</label> </p>
-                    
+                    <div class="margenSup">
+                        <p>
+                            <input type="radio" id="hombre" name="genero" value="M" required/> <label for="hombre">Hombre</label>
+                        </p> 
+                        <p>
+                            <input type="radio" id="mujer" name="genero" value="F" required/>  <label for="mujer">Mujer</label>
+                        </p>
+                        <p>
+                            <input type="radio" id="otro" name="genero" value="I" required/>
+                            <label for="otro">Intersexual</label>
+                        </p>
+                        <p id="sexoMal" class="error"></p>
+                    </div>
                 </p>
             </div>
             <div class="der">
-                <p>Actividades: </p>
-                <div>
-                    <div class="izq">
-                        <input type="checkbox" id="sala" name="salaFitness" value="salaFitness">
-                        <label for="sala">Sala fitness</label> </br>
-                        <input type="checkbox" id="yoga" name="yoga" value="yoga">
-                        <label for="yoga">Yoga</label>
-                    </div>
-                    <div class="der">
-                        <input type="checkbox" id="spa" name="spa" value="spa">
-                        <label for="spa">Spa</label> </br>
-                        <input type="checkbox" id="natacion" name="natacion" value="natacion">
-                        <label for="natacion">Natación</label>
-                    </div>
-                </div> 
+                <p>Actividades: <br>
+                    <div class="margenSup">
+                        <div class="izq2">
+                            <input type="checkbox" id="sala" name="salaFitness" value="salaFitness">
+                            <label for="sala">Sala fitness</label> </br>
+                            <input type="checkbox" id="yoga" name="yoga" value="yoga">
+                            <label for="yoga">Yoga</label>
+                        </div>
+                        <div class="der2">
+                            <input type="checkbox" id="spa" name="spa" value="spa">
+                            <label for="spa">Spa</label> </br>
+                            <input type="checkbox" id="natacion" name="natacion" value="natacion">
+                            <label for="natacion">Natación</label>
+                        </div>
+                    
+                    </div> 
+                </p>
+                <p id="actividadesMal" class="error"></p>
             </div>
         </div>
         <br>
-        <br>
-        <label for="horario">Horario:</label> <br>
+        
+        <label for="horario" id="cabeceraHorario">Horario (pulse para desplegar):</label> 
         <select id="horario" name="horario">
             <option value="mañana">Mañana</option>
             <option value="tarde">Tarde</option>
@@ -141,8 +153,8 @@
         
         
         <input class="boton" type="submit" value="Enviar" />
-        <input class="boton" type="reset" value="Limpiar formulario" />
-        <input class="boton" type="button" onclick="validar()" value="Validar antes de enviar" />
+        <input class="boton" type="reset" onclick="limpiarErrores()" value="Limpiar formulario" />
+        <input class="boton" type="button" onclick="validarAntes()" value="Validar antes de enviar" />
       </form> 
 <!--=============FIN FORMULARIO===========================-->
 
