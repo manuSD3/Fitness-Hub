@@ -58,8 +58,8 @@ function validaEmail() {
     return enviar;
 }
 
-function limiteCaracteres() {
-    let mensaje = document.forms["contacto"]["mensaje"].value;
+function validaMensaje() {
+    let mensaje = document.getElementById("mensaje").value;
 
     let enviar = false;
 
@@ -67,10 +67,10 @@ function limiteCaracteres() {
 
         document.getElementById("mensajeMal").innerHTML = "Escribe tu consulta";
 
-    } else if (mensaje.length > 250) {
+    } else if (mensaje.length > 5) {
         //mostrar error
         //seria conveniente llamar a la funcion cuando esta escribiendo (onkeyup)
-        document.getElementById("mensajeMal").innerHTML = "Te has pasado del limite de 250 caracteres";
+        document.getElementById("mensajeMal").innerHTML = "Te has pasado del límite de 250 caracteres";
     } else {
         document.getElementById("mensajeMal").innerHTML = "";
         enviar=true;
@@ -100,4 +100,31 @@ function validarTodo() {
         enviar = true;
     }
     return enviar;
+}
+
+function validarAntes() {
+
+    validaEmail();
+    validaNombre();
+    validaMensaje();
+
+    if (validarTodo()) {
+        alert("Todo parece correcto");
+    }
+}
+
+function limpiarErrores() {
+
+    let ids = ["emailMal","nombreMal", "mensajeMal"];
+
+    for (let index = 0; index < ids.length; index++) {
+        document.getElementById(ids[index]).innerHTML = "";
+    }
+
+    ids = ["email","nombre", "mensaje"];
+
+    for (let index = 0; index < ids.length; index++) {
+        cambiarBorde(true, ids[index]);
+    }
+
 }

@@ -1,11 +1,20 @@
 function cambiarBorde(enviar, elemento) {
     if (!enviar) {
-        document.getElementById(elemento).style.border="2px solid #cb2e35";
-        //document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 9px red";
-        document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
+        if (elemento != "izq" || elemento != "der") {
+            document.getElementById(elemento).style.border="2px solid #cb2e35";
+            //document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 9px red";
+            document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
+        } else {
+            document.getElementById(elemento).style.border="2px solid #cb2e35";
+            //document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
+        }
     } else {
-        document.getElementById(elemento).style.border="1px solid black";
-        document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 0px red";
+        if (elemento != "izq" || elemento != "der") {
+            document.getElementById(elemento).style.border="1px solid black";
+            document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 0px red";
+        } else {
+            document.getElementById(elemento).style.border="none";
+        }
     }
 }
 
@@ -143,6 +152,13 @@ function validaEmail() {
     return enviar;
 }
 
+/*
+<svg height="210" width="1000">
+  <line x1="500" y1="0" x2="0" y2="0" style="stroke:rgb(255,0,0);stroke-width:10" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+*/
+
 function validaPassword() {
     let password = document.forms["registro"]["password"].value;
     const caracteres = /[!@#\$%\^&\*]+/gm;
@@ -222,7 +238,7 @@ function validaSexo() {
         document.getElementById("sexoMal").innerHTML = "Debes marcar el sexo";
     }
 
-    //document.getElementById(elemento).style["input[type='radio']:after"]="red";
+    cambiarBorde(enviar, "izq");
 
     return enviar;
 }
@@ -241,6 +257,8 @@ function validaActividades() {
         document.getElementById("actividadesMal").innerHTML = "";
         enviar = true;
     }
+
+    cambiarBorde(enviar, "der");
 
     return enviar;
 }
@@ -265,7 +283,7 @@ function validarAntes() {
     validaPassword2();
     validaSexo();
     validaActividades();
-
+    
     if (validarTodo()) {
         alert("Todo parece correcto");
     }
@@ -279,7 +297,7 @@ function limpiarErrores() {
         document.getElementById(ids[index]).innerHTML = "";
     }
 
-    ids = ["nombre", "fecha_nac", "telefono","email","password","password2"];
+    ids = ["nombre", "fecha_nac", "telefono","email","password","password2", "izq", "der"];
 
     for (let index = 0; index < ids.length; index++) {
         cambiarBorde(true, ids[index]);

@@ -100,13 +100,13 @@ div .tabla {
     margin-bottom: 50px;
 }
 
-.izq {
+#izq {
     float: left;
     width: 50%;
     /* display:inline; */
   }
 
-.der {
+#der {
    float: right;
    width: 50%;
    /* display:inline; */
