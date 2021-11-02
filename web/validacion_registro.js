@@ -145,7 +145,11 @@ function validaEmail() {
 
 function validaPassword() {
     let password = document.forms["registro"]["password"].value;
-    const caracPermitidos = /^([a-zA-Z0-9\-_\.@]+)$/gm;
+    const caracteres = /[!@#\$%\^&\*]+/gm;
+    const minusculas = /[a-z]+/gm;
+    const mayusculas = /[A-Z]+/gm;
+    const numeros = /[0-9]+/gm;
+
     //       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])$/gm
     let enviar = false;
 
@@ -156,10 +160,20 @@ function validaPassword() {
         
     } else if (password.length > 16 || password.length < 8) {
         document.getElementById("contraseñaMal").innerHTML = "La contraseña debe ser de entre 8 y 16 caracteres";
-        
+
+    } else if (!caracteres.test(String(password))){
+        document.getElementById("contraseñaMal").innerHTML = "La contraseña debe tener al menos un caracter especial (!,@,#,$,%,^,&,*)";
+    } else if (!minusculas.test(String(password))){
+        document.getElementById("contraseñaMal").innerHTML = "La contraseña debe tener al menos una letra minúscula";
+    } else if (!mayusculas.test(String(password))){
+        document.getElementById("contraseñaMal").innerHTML = "La contraseña debe tener al menos una letra mayúscula";
+    } else if (!numeros.test(String(password))){
+        document.getElementById("contraseñaMal").innerHTML = "La contraseña debe tener al menos un número";
+  
     } else {
         document.getElementById("contraseñaMal").innerHTML = "";
         enviar = true;
+        
     }
 
     cambiarBorde(enviar, "password");
