@@ -12,7 +12,7 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto:wght@300;400;700&family=Russo+One&display=swap" rel="stylesheet">
      <!--==============-->
-    <script type="text/javascript" src="FormularioDeContacto.js"></script>
+    <script type="text/javascript" src="validacion_contacto.js"></script>
     <link rel="stylesheet" type="text/css" href="FormularioDeContacto.css">
 
     <link rel="icon" type="image/png" href="../img/favicon.png">
@@ -34,7 +34,7 @@
        </div>
     </header>
 <!--=============FORMULARIO===========================-->
-<form id="formulario" name="registro" action="/action_page.php" method="post" onsubmit="return validarTodo();">
+<form id="formulario" name="contacto" action="/action_page.php" method="post" onsubmit="return validarTodo();">
   <h1>Formulario de Contacto:</h1>
 
   <div class="fila">
@@ -67,7 +67,8 @@
         </label> 
       </div>
       <div class="derecha">                    
-          <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
+          <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..." onblur="validaMensaje()" onkeyup="validaMensaje()"></textarea>
+          <p id="mensajeMal" class="error"></p>
       </div>
     </div>
     <br>
