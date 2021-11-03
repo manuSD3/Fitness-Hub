@@ -104,13 +104,13 @@
                 <p>Sexo: </br>
                     <div class="margenSup">
                         <p>
-                            <input type="radio" id="hombre" name="genero" value="M" required/> <label for="hombre">Hombre</label>
+                            <input type="radio" id="hombre" name="genero" value="M" onblur="validaSexo()" required/> <label for="hombre">Hombre</label>
                         </p> 
                         <p>
-                            <input type="radio" id="mujer" name="genero" value="F" required/>  <label for="mujer">Mujer</label>
+                            <input type="radio" id="mujer" name="genero" value="F" onblur="validaSexo()" required/>  <label for="mujer">Mujer</label>
                         </p>
                         <p>
-                            <input type="radio" id="otro" name="genero" value="I" required/>
+                            <input type="radio" id="otro" name="genero" value="I" onblur="validaSexo()" required/>
                             <label for="otro">Intersexual</label>
                         </p>
                         <p id="sexoMal" class="error"></p>
@@ -121,15 +121,15 @@
                 <p>Actividades: <br>
                     <div class="margenSup">
                         <div class="izq2">
-                            <input type="checkbox" id="sala" name="salaFitness" value="salaFitness">
+                            <input type="checkbox" id="sala" name="salaFitness" value="salaFitness" onblur="validaActividades()">
                             <label for="sala">Sala fitness</label> </br>
-                            <input type="checkbox" id="yoga" name="yoga" value="yoga">
+                            <input type="checkbox" id="yoga" name="yoga" value="yoga"  onblur="validaActividades()">
                             <label for="yoga">Yoga</label>
                         </div>
                         <div class="der2">
-                            <input type="checkbox" id="spa" name="spa" value="spa">
+                            <input type="checkbox" id="spa" name="spa" value="spa"  onblur="validaActividades()">
                             <label for="spa">Spa</label> </br>
-                            <input type="checkbox" id="natacion" name="natacion" value="natacion">
+                            <input type="checkbox" id="natacion" name="natacion" value="natacion" onblur="validaActividades()">
                             <label for="natacion">Natación</label>
                         </div>
                     

@@ -1,19 +1,21 @@
 function cambiarBorde(enviar, elemento) {
     if (!enviar) {
-        if (elemento != "izq" || elemento != "der") {
+        if (elemento != "izq" && elemento != "der") {
             document.getElementById(elemento).style.border="2px solid #cb2e35";
             //document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 9px red";
             document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
         } else {
             document.getElementById(elemento).style.border="2px solid #cb2e35";
-            //document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
+            document.getElementById(elemento).style.width="49%";
+            document.getElementById(elemento).style["boxShadow"]="0px 0px 9px #cb2e35";
         }
     } else {
-        if (elemento != "izq" || elemento != "der") {
+        if (elemento != "izq" && elemento != "der") {
             document.getElementById(elemento).style.border="1px solid black";
             document.getElementById(elemento).style["boxShadow"]="inset 0px 0px 0px red";
         } else {
             document.getElementById(elemento).style.border="none";
+            document.getElementById(elemento).style["boxShadow"]="none";
         }
     }
 }
