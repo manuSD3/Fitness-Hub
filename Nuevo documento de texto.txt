@@ -1,4 +1,0 @@
-git add -A en mi rama
-git commit -m "escribo lo que haya hecho ese dia"
-git push
-push request desde mi rama a dev
