@@ -14,6 +14,7 @@
      
   if ($pass !== $pass2){
     header('Location: formulario_registro.html');
+ 
   }
 
   
@@ -24,6 +25,7 @@
 
         header('Location: formulario_registro.html');
 
+        echo print_r($_POST);
     } else {
 try {
     $conexion = new PDO('mysql:host=localhost;dbname=gym', 'root',''); 

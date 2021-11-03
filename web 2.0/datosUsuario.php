@@ -53,7 +53,7 @@ if ($conexion -> connect_errno){
         </nav>
 
        <div>
-                <button class="botones-header"><a href="formulario_registro.html"> Mis datos </a></button>
+                <button class="botones-header"><a href="datosUsuario.php"> Mis datos </a></button>
        </div>
     </header>
     <!--=============FORMULARIO===========================-->

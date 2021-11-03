@@ -67,7 +67,7 @@ function validaMensaje() {
 
         document.getElementById("mensajeMal").innerHTML = "Escribe tu consulta";
 
-    } else if (mensaje.length > 5) {
+    } else if (mensaje.length > 250) {
         //mostrar error
         //seria conveniente llamar a la funcion cuando esta escribiendo (onkeyup)
         document.getElementById("mensajeMal").innerHTML = "Te has pasado del límite de 250 caracteres";
