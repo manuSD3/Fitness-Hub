@@ -13,7 +13,7 @@
       
      
   if ($pass !== $pass2){
-    header('Location: http://localhost/web/formulario_registro.html');
+    header('Location: formulario_registro.html');
   }
 
   
@@ -22,8 +22,8 @@
     || empty($email) || empty($pass)|| empty($sexo) 
     || empty($actividades) || empty($horario)){
 
-        header('Location: http://localhost/web/formulario_registro.html');
-        
+        header('Location: formulario_registro.html');
+
     } else {
 try {
     $conexion = new PDO('mysql:host=localhost;dbname=gym', 'root',''); 
@@ -31,14 +31,13 @@ try {
     $statement = $conexion->prepare('INSERT INTO Persons (email, nombre, telefono, contraseña, sexo, horario, actividad) VALUES (:email, :nombre, :telefono, :pass, :sexo, :horario, :actividades)');
     $statement-> execute(array(':email' => $email, ':nombre' => $nombre, ':telefono' => $telefono,':pass'=>$pass, 'sexo'=> $sexo,':horario' => $horario, ':actividades'=>$actividades));
    
-    enviarCorreo($email, $pass);
+    // enviarCorreo($email, $pass);
 
-    header('Location: http://localhost/web/Fitness-Hub/web/');
-
+    header('Location: index.html');
 }catch (PDOException $e){
     // echo "Error: ".$e->getMessage();
     # Error te manda de nuevo al formulario
-    header('Location: http://localhost/web/formulario_registro.html');
+    header('Location: formulario_registro.html');
 }
     }
 
