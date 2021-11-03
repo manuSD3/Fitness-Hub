@@ -1,0 +1,41 @@
+@import url(index.css);
+@import url(formulario.css);
+
+
+form {
+    margin: 5% auto 10% auto;
+    width: 33%;
+    background-color: #0A1E25;
+    padding: 1% 2% 1% 2%;
+}
+
+label {
+    display: inline-block;
+}
+
+input[type=submit] {
+    text-align: center;
+    cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+
+    background-color: #C4C4C4;
+    color: #3A494E;
+    clear:both;
+
+    font-family: var(--texto-logo-cabecera);
+}
+
+.tabla {
+    margin-bottom: 3.5em;
+}
+
+.izq {
+    display:inline;
+  }
+
+.der {
+   display:inline;
+  }
+ 

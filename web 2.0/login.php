@@ -2,8 +2,7 @@
 $conexion = new mysqli('localhost', 'root', '','gym');
 
 if ($conexion -> connect_errno){
-    # Cambiar a login cuando gonzalo lo termine
-   header('Location: https://192.168.64.2/Fitness-Hub/web/');
+   header('Location: FormularioLogin.html');
    
 }else {
     $usuario = $_POST['usuario'];
@@ -11,7 +10,7 @@ if ($conexion -> connect_errno){
     
     if (empty($usuario) || empty($pass)){
         
-      //  header('Location: https://192.168.64.2/Fitness-Hub/web/');
+        header('Location: FormularioLogin.html');
     }else {
             try {
                 $stmt = $conexion->prepare("SELECT * FROM persons WHERE email = ? AND contraseña = ?");
