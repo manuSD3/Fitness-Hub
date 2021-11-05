@@ -11,6 +11,8 @@
     $horario = $_POST['horario'];
     $pass2 = $_POST['pass2'];
       
+    $pass = hash('sha512', $pass);
+    $pass2 = hash('sha512', $pass2);
      
   if ($pass !== $pass2){
     header('Location: formulario_registro.html');
