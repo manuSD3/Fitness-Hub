@@ -8,6 +8,7 @@ if ($conexion -> connect_errno){
     $usuario = $_POST['usuario'];
     $pass = $_POST['pass'];
     
+    $pass = hash('sha512', $pass);
     if (empty($usuario) || empty($pass)){
         
         header('Location: FormularioLogin.html');
